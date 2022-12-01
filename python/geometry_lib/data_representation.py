@@ -2,7 +2,7 @@ class Point:
     #todo implement
     pass
 
-#enum VectorSide
+#enum Side
 class Side:
     LEFT=-1
     RIGHT=1
@@ -32,9 +32,7 @@ class SegmentList:
     pass
 class Polygon:
     def __init__(self, vertices):
-        assert isinstance(vertices, PolygonVertexList), f"Expected PolygonVertexList"
-        vert_list = [x for x in vertices]
-        self.vertices=vert_list
+        self.vertices = PolygonVertexList(vertices)
     def get_vertices(self):
         return self.vertices
 
