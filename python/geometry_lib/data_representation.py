@@ -2,6 +2,12 @@ class Point:
     #todo implement
     pass
 
+#enum VectorSide
+class VectorSide:
+    LEFT=-1
+    RIGHT=1
+    NONE=0
+
 class Color:
     #todo implement
     pass
@@ -13,7 +19,7 @@ class Vector:
     def __init__(self, p1, p2):
         pass
 
-    def get_side(self, point) -> VectorSide:
+    def get_side(self, point) -> int:
         return VectorSide.LEFT
 
     def intersects(self, other: Segment):
@@ -36,28 +42,33 @@ class PolygonVertexList:
             vertices=tuple()
         vert_list = [x for x in vertices]
         assert all(isinstance(x, Point) for x in vert_list)
-        self._vertices=vert_list
-        self._segments = [Vector(vertices[i],vertices[(i+1)%len(vertices)]) for i in range(vertices)]
+        self.data=vert_list
 
-    def add_vertex(self, vertex:Point):
+    def Add(self, vertex:Point):
         #todo check for self-intersections
         assert vertex is not None
-        self._vertices.append(vertex)
-    def remove_vertex(self):
-        self._vertices.remove(len(self._vertices)-1)
-    def remove_vertex(self,index):
-        self._vertices.remove(index)
+        self.data.append(vertex)
+    def Remove(self,index=None):
+        if index is None:
+            index= len(self.data) - 1
+        self.data.remove(index)
     def __index__(self, index):
-        return self._vertices[index]
+        return self.data[index]
     def __hash__(self):
-        return self._vertices.__hash__()
+        return self.data.__hash__()
     def __len__(self):
-        return len(self._vertices)
+        return len(self.data)
+    def Size(self):
+        return len(self)
+    def isEmpty(self):
+        return len(self)==0
+    def Find(self, vertex):
+        return vertex in self.data
     def __add__(self, other):
         if isinstance(other,PolygonVertexList):
-            self._vertices+=other._vertices
+            self.data+=other.data
         elif isinstance(other,Polygon):
-            self._vertices.append(other)
+            self.data.append(other)
 
 
 class PolygonList:
@@ -69,31 +80,27 @@ class PolygonList:
             polygons=tuple()
         poly_list = [x for x in polygons]
         assert all(isinstance(x,Polygon) for x in poly_list)
-        self._polygons=poly_list
+        self.data=poly_list
 
-    def add_polygon(self, polygon:Polygon):
+    def Add(self, polygon:Polygon):
         assert polygon is not None
-        self._polygons.append(polygon)
+        self.data.append(polygon)
 
-    def remove_polygon(self):
-        self._polygons.remove(len(self._polygons)-1)
-    def remove_polygon(self,index):
-        self._polygons.remove(index)
+    def Remove(self,index=None):
+        if index is None:
+            index= len(self.data) - 1
+        self.data.remove(index)
     def __index__(self, index):
-        return self._polygons[index]
+        return self.data[index]
     def __hash__(self):
-        return self._polygons.__hash__()
+        return self.data.__hash__()
     def __len__(self):
-        return len(self._polygons)
+        return len(self.data)
     def __add__(self, other):
         if isinstance(other,PolygonList):
-            self._polygons+=other._polygons
+            self.data+=other.data
         elif isinstance(other,Polygon):
-            self._polygons.append(other)
+            self.data.append(other)
 
-#enum VectorSide
-class VectorSide:
-    LEFT=-1
-    RIGHT=1
-    NONE=0
+
 
