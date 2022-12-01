@@ -8,13 +8,13 @@ class Color:
 
 class Segment:
     pass
-class Vector:
+class Direct_Segment:
     #todo implement
     def __init__(self, p1, p2):
         pass
 
-    def get_side(self, point) -> VectorSide:
-        return VectorSide.LEFT
+    def get_side(self, point) -> Side:
+        return Side.LEFT
 
     def intersects(self, other: Segment):
         return True
@@ -25,10 +25,12 @@ class SegmentList:
     #todo implement
     pass
 class Polygon:
-    #todo implement
+    def __init__(self, vertices):
+        assert isinstance(vertices, PolygonVertexList), f"Expected PolygonVertexList"
+        vert_list = [x for x in vertices]
+        self.vertices=vert_list
     def get_vertices(self):
-        #todo return a PolygonVertexList
-        pass
+        return self.vertices
 
 class PolygonVertexList:
     def __init__(self, vertices):
@@ -92,7 +94,7 @@ class PolygonList:
             self._polygons.append(other)
 
 #enum VectorSide
-class VectorSide:
+class Side:
     LEFT=-1
     RIGHT=1
     NONE=0
