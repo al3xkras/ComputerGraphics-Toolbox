@@ -103,9 +103,3 @@ class PolygonList:
             self.data.append(other)
 
 
-#enum VectorSide
-class Side:
-    LEFT=-1
-    RIGHT=1
-    NONE=0
-
