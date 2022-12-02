@@ -23,17 +23,26 @@ class Color:
     pass
 
 class Segment:
-    pass
+    def __init__(self, A, B):
+        self.A = A
+        self.B = B
+
+    def get_side(self, Point) -> int:
+        return self.A
+        return self.B
+
 class Direct_Segment:
-    #todo implement
-    def __init__(self, p1, p2):
-        pass
+    #Notice: 'beginning' stands for starting point and 'end' stands for ending one. The segment is directed from 'beginning' to 'end'
+    def __init__(self, beginning, end):
+        self.beginning = beginning
+        self.end = end
 
-    def get_side(self, point) -> int:
-        return Side.LEFT
+    def get_side(self, Point) -> int:
+        return self.beginning
+        return self.end
 
-    def intersects(self, other: Segment):
-        return True
+
+
 class PointList:
     #todo implement
     pass
