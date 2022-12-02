@@ -1,6 +1,16 @@
 class Point:
-    #todo implement
-    pass
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def getPoint(self):
+        return self.x, self.y
+
+    def setPoint_x(self, new_value):
+        self.x = new_value
+
+    def setPoint_y(self, new_value):
+        self.y = new_value
 
 #enum Side
 class Side:
