@@ -1,3 +1,4 @@
+
 class Point:
     def __init__(self, x, y):
         self.x = x
@@ -40,85 +41,89 @@ class Direct_Segment:
     def get_side(self, Point) -> int:
         return self.beginning
         return self.end
+    def intersects(self, other: Segment):
+        return True
 
+class Intersection_Point:
+    def __init__(self, seg1:Segment, seg2:Segment):
+        self.segment1 = seg1 
+        self.segment2 = seg2
+        self.intersection_point = Intersection(seg1, seg2) #function from elementary_functions.py
+    def get_inter_point(self):
+        return self.intersection_point
 
-
-class PointList:
-    #todo implement
-    pass
-class SegmentList:
-    #todo implement
-    pass
+class Seg_Point_Side:
+    def __init__(self, segment:Segment, point:Point):
+        self.segment = segment
+        self.point = point
+        self.side = WhichSide(segment, point) #function from elementary_functions.py
+    def get_side(self):
+        return self.side
 class Polygon:
     def __init__(self, vertices):
         self.vertices = PolygonVertexList(vertices)
     def get_vertices(self):
         return self.vertices
 
-class PolygonVertexList:
-    def __init__(self, vertices):
-        if vertices is None:
-            vertices=tuple()
-        vert_list = [x for x in vertices]
-        assert all(isinstance(x, Point) for x in vert_list)
-        self.data=vert_list
 
-    def Add(self, vertex:Point):
-        #todo check for self-intersections
-        assert vertex is not None
-        self.data.append(vertex)
-    def Remove(self,index=None):
-        if index is None:
-            index= len(self.data) - 1
-        self.data.remove(index)
-    def __index__(self, index):
-        return self.data[index]
-    def __hash__(self):
-        return self.data.__hash__()
-    def __len__(self):
-        return len(self.data)
+class List:
+    def __init__(self):
+        pass
+    def Add(self, element):
+        if not(element in self.data):
+            self.data.append(element)
+    def Del(self, element):
+        try:
+            self.data.remove(element)
+        except:
+            print(f"{element} is not in list")
+    def Find(self, element):
+        if element in self.data:
+            return self.data.index(element)
+        else:
+            return None
+    def IsEmpty(self):
+        if len(self.data) == 0:
+            return True
+        else:
+            return False
     def Size(self):
-        return len(self)
-    def isEmpty(self):
-        return len(self)==0
-    def Find(self, vertex):
-        return vertex in self.data
-    def __add__(self, other):
-        if isinstance(other,PolygonVertexList):
-            self.data+=other.data
-        elif isinstance(other,Polygon):
-            self.data.append(other)
-
-
-class PolygonList:
-    def __init__(self, polygons):
-        """
-        :param polygons: any Iterable containing objects of type Polygon
-        """
-        if polygons is None:
-            polygons=tuple()
-        poly_list = [x for x in polygons]
-        assert all(isinstance(x,Polygon) for x in poly_list)
-        self.data=poly_list
-
-    def Add(self, polygon:Polygon):
-        assert polygon is not None
-        self.data.append(polygon)
-
-    def Remove(self,index=None):
-        if index is None:
-            index= len(self.data) - 1
-        self.data.remove(index)
-    def __index__(self, index):
-        return self.data[index]
-    def __hash__(self):
-        return self.data.__hash__()
-    def __len__(self):
         return len(self.data)
-    def __add__(self, other):
-        if isinstance(other,PolygonList):
-            self.data+=other.data
-        elif isinstance(other,Polygon):
-            self.data.append(other)
 
+
+class PointList(List):
+    def __init__(self, points):
+        assert all(isinstance(x, Point) for x in points)
+        point_list = [x for x in points]
+        self.data=point_list
+    
+class SegmentList(List):
+    def __init__(self, segments):
+        assert all(isinstance(x, Segment) for x in segments)
+        seg_list = [x for x in segments]
+        self.data=seg_list
+
+class PolygonVertexList(List):
+    def __init__(self, points):
+        assert all(isinstance(x, Point) for x in points)
+        point_list = [x for x in points]
+        self.data=point_list
+
+class PolygonList(List):
+    def __init__(self, polygons):
+        assert all(isinstance(x, Polygon) for x in polygons)
+        pol_list = [x for x in polygons]
+        self.data=pol_list
+
+class IntersectionPointList(List):
+    def __init__(self, elements):
+        assert all(isinstance(x, Intersection_Point) for x in elements)
+        elem_list = [x for x in elements]
+        self.data=elem_list
+
+class SegPointSideList(List):
+    def __init__(self, elements):
+        assert all(isinstance(x, Seg_Point_Side) for x in elements)
+        elem_list = [x for x in elements]
+        self.data=elem_list
 
