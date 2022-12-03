@@ -30,7 +30,12 @@ class Segment:
 
     def get_side(self, Point) -> int:
         return self.A
+        #todo refactor the code
         return self.B
+
+# important! elementary_functions module imports should be called after
+# the declaration of Segment and Point classes, to avoid circular module dependencies
+from elementary_functions import WhichSide,Intersection
 
 class Direct_Segment:
     #Notice: 'beginning' stands for starting point and 'end' stands for ending one. The segment is directed from 'beginning' to 'end'
@@ -40,6 +45,7 @@ class Direct_Segment:
 
     def get_side(self, Point) -> int:
         return self.beginning
+        #todo refactor the code
         return self.end
     def intersects(self, other: Segment):
         return True
@@ -68,8 +74,10 @@ class Polygon:
 
 class List:
     def __init__(self):
+        #todo add 'data' attribute to self
         pass
     def Add(self, element):
+        #todo add 'data' attribute to self
         if not(element in self.data):
             self.data.append(element)
     def Del(self, element):
@@ -93,36 +101,42 @@ class List:
 
 class PointList(List):
     def __init__(self, points):
+        #todo call __init__ of the superclass (List)
         assert all(isinstance(x, Point) for x in points)
         point_list = [x for x in points]
         self.data=point_list
     
 class SegmentList(List):
     def __init__(self, segments):
+        #todo call __init__ of the superclass (List)
         assert all(isinstance(x, Segment) for x in segments)
         seg_list = [x for x in segments]
         self.data=seg_list
 
 class PolygonVertexList(List):
     def __init__(self, points):
+        #todo call __init__ of the superclass (List)
         assert all(isinstance(x, Point) for x in points)
         point_list = [x for x in points]
         self.data=point_list
 
 class PolygonList(List):
     def __init__(self, polygons):
+        #todo call __init__ of the superclass (List)
         assert all(isinstance(x, Polygon) for x in polygons)
         pol_list = [x for x in polygons]
         self.data=pol_list
 
 class IntersectionPointList(List):
     def __init__(self, elements):
+        #todo call __init__ of the superclass (List)
         assert all(isinstance(x, Intersection_Point) for x in elements)
         elem_list = [x for x in elements]
         self.data=elem_list
 
 class SegPointSideList(List):
     def __init__(self, elements):
+        #todo call __init__ of the superclass (List)
         assert all(isinstance(x, Seg_Point_Side) for x in elements)
         elem_list = [x for x in elements]
         self.data=elem_list
