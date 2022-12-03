@@ -1,7 +1,17 @@
 
 class Point:
-    #todo implement
-    pass
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def getPoint(self):
+        return self.x, self.y
+
+    def setPoint_x(self, new_value):
+        self.x = new_value
+
+    def setPoint_y(self, new_value):
+        self.y = new_value
 
 #enum Side
 class Side:
@@ -14,15 +24,23 @@ class Color:
     pass
 
 class Segment:
-    pass
+    def __init__(self, A, B):
+        self.A = A
+        self.B = B
+
+    def get_side(self, Point) -> int:
+        return self.A
+        return self.B
+
 class Direct_Segment:
-    #todo implement
-    def __init__(self, p1, p2):
-        pass
+    #Notice: 'beginning' stands for starting point and 'end' stands for ending one. The segment is directed from 'beginning' to 'end'
+    def __init__(self, beginning, end):
+        self.beginning = beginning
+        self.end = end
 
-    def get_side(self, point) -> int:
-        return Side.LEFT
-
+    def get_side(self, Point) -> int:
+        return self.beginning
+        return self.end
     def intersects(self, other: Segment):
         return True
 
@@ -41,7 +59,6 @@ class Seg_Point_Side:
         self.side = WhichSide(segment, point) #function from elementary_functions.py
     def get_side(self):
         return self.side
-
 class Polygon:
     def __init__(self, vertices):
         self.vertices = PolygonVertexList(vertices)
@@ -109,3 +126,4 @@ class SegPointSideList(List):
         assert all(isinstance(x, Seg_Point_Side) for x in elements)
         elem_list = [x for x in elements]
         self.data=elem_list
+
