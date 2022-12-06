@@ -15,12 +15,15 @@ class Point:
 
 #enum Side
 class Side:
-    LEFT=-1
-    RIGHT=1
-    NONE=0
+    LEFT = -1
+    RIGHT = 1
+    NONE = 0
 
 class Color:
-    #todo implement
+    NONE = 0
+    BLUE = 1
+    RED = 2
+    GREEN = 3
     pass
 
 class Segment:
