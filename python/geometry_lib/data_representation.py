@@ -41,7 +41,7 @@ class Color:
 More details.
 """
 class Segment:
-    def __init__(self, A, B):
+    def __init__(self, A:Point, B:Point):
         self.A = A
         self.B = B
 
