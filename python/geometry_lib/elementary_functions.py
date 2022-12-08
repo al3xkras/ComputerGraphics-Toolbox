@@ -21,6 +21,21 @@ More details.
 def Orientation(A:Point, B:Point, P:Point):
 	return (B.x-A.x)*(P.y-A.y)-(P.x-A.x)*(B.y-A.y)
 
+def BoundingBox(A:Point, B:Point, P:Point):
+    if (P.x >= A.x and P.x <= B.x) and (P.y >= A.y and P.y <= B.y):
+        return True
+    else:
+        return False
+
+def IfPointIsOnSegment(A:Point, B:Point, P:Point):
+    if BoundingBox(A, B, P) == False:
+        return False
+    elif Orientation(A, B, P) == 0:
+        return True
+    else:
+        return False
+
+
 def Intersection(seg1:Segment, seg2:Segment):
     pass
 
