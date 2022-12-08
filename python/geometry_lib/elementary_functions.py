@@ -34,9 +34,9 @@ def WhichSide(seg:Segment, point:Point):
     value=(bX - aX)*(cY - aY) - (bY - aY)*(cX - aX)
     thresh = 1e-9
     if value >= thresh:
-        return Side.RIGHT
-    elif value <= -thresh:
         return Side.LEFT
+    elif value <= -thresh:
+        return Side.RIGHT
     else:
         return Side.NONE
 

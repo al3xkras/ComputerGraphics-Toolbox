@@ -12,12 +12,12 @@ class Test(TestCase):
         test_points=[
             [Point(0,0),Point(-1,-1),Point(-10.4,100),Point(5,10)],
             [Point(0.5,0),Point(-1000,0),Point(10,10),Point(-0.0001,-0.1)],
-            [Point(0,0),Point(-100,1000),Point(0.5,0.5),Point(1,10)]
+            [Point(0,0),Point(-100,1000),Point(0.5,-0.5),Point(1,10)]
         ]
         test_sides=[
-            [Side.NONE,Side.RIGHT,Side.LEFT,Side.RIGHT],
-            [Side.NONE,Side.NONE,Side.RIGHT,Side.LEFT],
-            [Side.LEFT,Side.LEFT,Side.NONE,Side.RIGHT]
+            [Side.NONE,Side.LEFT,Side.LEFT,Side.RIGHT],
+            [Side.NONE,Side.NONE,Side.LEFT,Side.RIGHT],
+            [Side.LEFT,Side.LEFT,Side.NONE,Side.LEFT]
         ]
         for i in range(len(test_segments)):
             seg=test_segments[i]
