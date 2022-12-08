@@ -17,6 +17,10 @@ def IsIntersection(seg1:Segment, seg2:Segment):
 
 More details.
 """
+
+def Orientation(A:Point, B:Point, P:Point):
+	return (B.x-A.x)*(P.y-A.y)-(P.x-A.x)*(B.y-A.y)
+
 def Intersection(seg1:Segment, seg2:Segment):
     pass
 
@@ -47,3 +51,5 @@ def CCW(p1:Point, p2:Point, p3:Point):
 
 if __name__ == '__main__':
     pass
+
+
