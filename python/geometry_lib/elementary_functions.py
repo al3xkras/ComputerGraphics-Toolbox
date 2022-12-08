@@ -4,7 +4,7 @@ Documentation for this module.
 More details.
 """
 from data_representation import Segment
-from data_representation import Point
+from data_representation import Point,Side
 
 """Documentation for this function.
 
@@ -34,11 +34,11 @@ def WhichSide(seg:Segment, point:Point):
     value=(bX - aX)*(cY - aY) - (bY - aY)*(cX - aX)
     thresh = 1e-9
     if value >= thresh:
-        return 1
+        return Side.RIGHT
     elif value <= -thresh:
-        return -1
+        return Side.LEFT
     else:
-        return 0
+        return Side.NONE
 
 def CCW(p1:Point, p2:Point, p3:Point):
     value = (p2.y - p1.y) * (p3.x - p2.x) - (p2.x - p1.x) * (p3.y - p2.y)

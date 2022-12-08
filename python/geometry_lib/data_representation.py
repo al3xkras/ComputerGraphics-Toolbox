@@ -22,6 +22,10 @@ class Point:
     def setPoint_y(self, new_value):
         self.y = new_value
 
+    def __str__(self) -> str:
+        return "Point["+str(self.x)+" "+str(self.y)+"]"
+
+
 #enum Side
 class Side:
     LEFT = -1
@@ -49,6 +53,9 @@ class Segment:
         return self.A
         #todo refactor the code
         return self.B
+
+    def __str__(self) -> str:
+        return "Segment["+str(self.A)+" "+str(self.B)+"]"
 
 # important! elementary_functions module imports should be called after
 # the declaration of Segment and Point classes, to avoid circular module dependencies
