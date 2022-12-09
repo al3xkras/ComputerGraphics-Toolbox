@@ -67,6 +67,7 @@ More details.
 """
 class Direct_Segment:
     #Notice: 'beginning' stands for starting point and 'end' stands for ending one. The segment is directed from 'beginning' to 'end'
+    #
     def __init__(self, beginning, end):
         self.beginning = beginning
         self.end = end
