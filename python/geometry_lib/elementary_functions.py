@@ -17,23 +17,24 @@ def IsIntersection(seg1:Segment, seg2:Segment):
 
 More details.
 """
+def orientation(ax,ay,bx,by,cx,cy):
+    # todo test
+    return (bx-ax)*(cy-ay)-(cx-ax)*(by-ay)
 
 def Orientation(A:Point, B:Point, P:Point):
-	return (B.x-A.x)*(P.y-A.y)-(P.x-A.x)*(B.y-A.y)
+    return orientation(A.x,A.y,B.x,B.y,P.x,P.y)
 
 def BoundingBox(A:Point, B:Point, P:Point):
-    if (P.x >= A.x and P.x <= B.x) and (P.y >= A.y and P.y <= B.y):
-        return True
-    else:
-        return False
+    # todo test
+    return (P.x >= A.x and P.x <= B.x) and (P.y >= A.y and P.y <= B.y)
 
 def IfPointIsOnSegment(A:Point, B:Point, P:Point):
-    if BoundingBox(A, B, P) == False:
+    # todo test
+    if not BoundingBox(A, B, P):
         return False
     elif Orientation(A, B, P) == 0:
         return True
-    else:
-        return False
+    return False
 
 
 def Intersection(seg1:Segment, seg2:Segment):
@@ -50,17 +51,16 @@ def WhichSide(seg:Segment, point:Point):
     bY = seg.B.y
     cX = point.x
     cY = point.y
-    value=(bX - aX)*(cY - aY) - (bY - aY)*(cX - aX)
+    value=orientation(aX,aY,bX,bY,cX,cY)
     thresh = 1e-9
     if value >= thresh:
         return Side.LEFT
     elif value <= -thresh:
         return Side.RIGHT
-    else:
-        return Side.NONE
+    return Side.NONE
 
 def CCW(p1:Point, p2:Point, p3:Point):
-    value = (p2.y - p1.y) * (p3.x - p2.x) - (p2.x - p1.x) * (p3.y - p2.y)
+    value = Orientation(p1,p2,p3)
     thresh = 1e-9
     return value <= -thresh
 

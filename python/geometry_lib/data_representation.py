@@ -49,34 +49,27 @@ class Segment:
         self.A = A
         self.B = B
 
-    def get_side(self, Point) -> int:
-        return self.A
-        #todo refactor the code
-        return self.B
+    def get_side(self, point:Point) -> int:
+        return WhichSide(self,point)
 
     def __str__(self) -> str:
         return "Segment["+str(self.A)+" "+str(self.B)+"]"
 
 # important! elementary_functions module imports should be called after
 # the declaration of Segment and Point classes, to avoid circular module dependencies
-from elementary_functions import WhichSide,Intersection
+from elementary_functions import WhichSide,Intersection,IsIntersection
 
 """Documentation for this class.
 
 More details.
 """
-class Direct_Segment:
+class Direct_Segment(Segment):
     #Notice: 'beginning' stands for starting point and 'end' stands for ending one. The segment is directed from 'beginning' to 'end'
-    def __init__(self, beginning, end):
-        self.beginning = beginning
-        self.end = end
+    def __init__(self, beginning:Point, end:Point):
+        super().__init__(beginning,end)
 
-    def get_side(self, Point) -> int:
-        return self.beginning
-        #todo refactor the code
-        return self.end
     def intersects(self, other: Segment):
-        return True
+        return IsIntersection(self,other)
 
 
 """Documentation for this class.
@@ -120,29 +113,32 @@ class Polygon:
 
 More details.
 """
-class List:
-    def __init__(self):
-        #todo add 'data' attribute to self
-        pass
+class List(list):
+    # todo test
+
+    def __init__(self,*args):
+        super().__init__(*args)
+        self.data=self
+
     def Add(self, element):
-        #todo add 'data' attribute to self
         if not(element in self.data):
             self.data.append(element)
+
     def Del(self, element):
         try:
             self.data.remove(element)
         except:
             print(f"{element} is not in list")
+
     def Find(self, element):
         if element in self.data:
             return self.data.index(element)
         else:
             return None
+
     def IsEmpty(self):
-        if len(self.data) == 0:
-            return True
-        else:
-            return False
+        return len(self.data) == 0
+
     def Size(self):
         return len(self.data)
 
@@ -153,8 +149,9 @@ More details.
 """
 class PointList(List):
     def __init__(self, points):
-        #todo call __init__ of the superclass (List)
+        #todo test
         assert all(isinstance(x, Point) for x in points)
+        super().__init__(points)
         point_list = [x for x in points]
         self.data=point_list
 
@@ -164,8 +161,9 @@ More details.
 """
 class SegmentList(List):
     def __init__(self, segments):
-        #todo call __init__ of the superclass (List)
+        #todo test
         assert all(isinstance(x, Segment) for x in segments)
+        super().__init__(segments)
         seg_list = [x for x in segments]
         self.data=seg_list
 
@@ -175,8 +173,9 @@ More details.
 """
 class PolygonVertexList(List):
     def __init__(self, points):
-        #todo call __init__ of the superclass (List)
+        #todo test
         assert all(isinstance(x, Point) for x in points)
+        super().__init__(points)
         point_list = [x for x in points]
         self.data=point_list
 
