@@ -10,8 +10,41 @@ from data_representation import Point,Side
 
 More details.
 """
+def VectorProduct(A:Point, B:Point, C:Point, D:Point):
+	return (B.x - A.x)(D.y - C.y) - (D.x - C.x)(B.y - A.y)
+
 def IsIntersection(seg1:Segment, seg2:Segment):
-    pass
+	if ((seg1.A == seg1.B) and (seg2.A == seg2.B)):
+		if seg1.A == seg2.A:
+			return True
+		else:
+			return False
+	elif seg1.A == seg1.B:
+		if IfPointIsOnSegment(seg2.A, seg2.B, seg1.A):
+			return True
+		else:
+			return False
+	elif seg2.A == seg2.B:
+		if IfPointIsOnSegment(seg1.A, seg1.B, seg2.A):
+			return True
+		else:
+			return False
+	else:
+		vecprod1 = VectorProduct(seg1.A, seg1.B, seg2.A, seg2.B)
+		vecprod2 = VectorProduct(seg1.A, seg2.A, seg2.A, seg2.B)
+		if vecprod1 == 0 and vecprod2 == 0:
+			return True
+		elif vecprod1 == 0:
+			return False
+		else:
+			t = vecprod2/vecprod1
+			vecprod3 = VectorProduct(seg1.A, seg2.A, seg1.A, seg1.B)
+			u = vecprod3/vecprod1
+			if t >= 0 and t <= 1 and u <= 1 and u >= 0:
+				return True
+			else:
+				return False
+
 
 """Documentation for this function.
 
@@ -37,7 +70,37 @@ def IfPointIsOnSegment(A:Point, B:Point, P:Point):
 
 
 def Intersection(seg1:Segment, seg2:Segment):
-    pass
+    if ((seg1.A == seg1.B) and (seg2.A == seg2.B)):
+		if seg1.A == seg2.A:
+			return seg1.A
+		else:
+			return None
+	elif seg1.A == seg1.B:
+		if IfPointIsOnSegment(seg2.A, seg2.B, seg1.A):
+			return seg1.A
+		else:
+			return None
+	elif seg2.A == seg2.B:
+		if IfPointIsOnSegment(seg1.A, seg1.B, seg2.A):
+			return seg2.A
+		else:
+			return None
+	else:
+		vecprod1 = VectorProduct(seg1.A, seg1.B, seg2.A, seg2.B)
+		vecprod2 = VectorProduct(seg1.A, seg2.A, seg2.A, seg2.B)
+		if vecprod1 == 0 and vecprod2 == 0:
+			return infinity
+		elif vecprod1 == 0:
+			return None
+		else:
+			t = vecprod2/vecprod1
+			vecprod3 = VectorProduct(seg1.A, seg2.A, seg1.A, seg1.B)
+			u = vecprod3/vecprod1
+			if t >= 0 and t <= 1 and u <= 1 and u >= 0:
+				return seg1.A + t*(seg1.B - seg1.A)
+			else:
+				return None
+	
 
 """Documentation for this function.
 
