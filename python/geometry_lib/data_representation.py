@@ -187,9 +187,9 @@ class PolygonVertexList(List):
 
     def has_self_intersections(self):
         #O((n**2-n)/2) = O(n**2) (naive method)
-        for i in range(1,len(self.data)):
+        for i in range(0,len(self.data)):
             seg=Segment(self.data[i-1],self.data[i])
-            for j in range(i-3):
+            for j in range(i-2):
                 s1=Segment(self[j],self[j+1])
                 if Intersection(seg,s1) is not None:
                     return True

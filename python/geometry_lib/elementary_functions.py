@@ -12,7 +12,7 @@ infinity=inf
 More details.
 """
 def VectorProduct(A:Point, B:Point, C:Point, D:Point):
-    return (B.x - A.x)(D.y - C.y) - (D.x - C.x)(B.y - A.y)
+    return (B.x - A.x)*(D.y - C.y) - (D.x - C.x)*(B.y - A.y)
 
 def IsIntersection(seg1:Segment, seg2:Segment):
     if (seg1.A == seg1.B) and (seg2.A == seg2.B):

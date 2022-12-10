@@ -25,7 +25,7 @@ class TestPolygonVertexList(TestCase):
         ])
         def f1():
             Polygon([
-                Point(0, 0), Point(2, 4), Point(-1, 2),
+                Point(0, 0), Point(2, 4), Point(2, -1),
                 Point(1,3)
             ])
         assertThrows(self,f1)
@@ -34,3 +34,13 @@ class TestPolygonVertexList(TestCase):
             Point(0, 0), Point(2, 4), Point(-1, 2),
             Point(1, 3)
         ],lazyInit=True)
+        Polygon([
+            Point(0, 0), Point(2, 4), Point(2, -1),
+            Point(1, 0), Point(1,-3), Point(-4,2)
+        ])
+        def f3():
+            Polygon([
+                Point(0, 0), Point(2, 4), Point(2, -1),
+                Point(1, 0), Point(1, -3), Point(-4, 20)
+            ])
+        assertThrows(self,f3)
