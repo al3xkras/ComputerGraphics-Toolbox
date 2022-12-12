@@ -8,10 +8,20 @@ More details.
 
 More details.
 """
+
+
+class Color:
+    NONE = 0
+    BLUE = 1
+    RED = 2
+    GREEN = 3
+    pass
+
 class Point:
-    def __init__(self, x, y):
+    def __init__(self, x, y, color:Color):
         self.x = x
         self.y = y
+        self.color = color
 
     def getPoint(self):
         return self.x, self.y
@@ -32,12 +42,6 @@ class Side:
     RIGHT = 1
     NONE = 0
 
-class Color:
-    NONE = 0
-    BLUE = 1
-    RED = 2
-    GREEN = 3
-    pass
 
 
 """Documentation for this class.
@@ -45,7 +49,7 @@ class Color:
 More details.
 """
 class Segment:
-    def __init__(self, A:Point, B:Point):
+    def __init__(self, A:Point, B:Point, color:Color):
         self.A = A
         self.B = B
 
@@ -77,10 +81,10 @@ class Direct_Segment(Segment):
 More details.
 """
 class Intersection_Point:
-    def __init__(self, seg1:Segment, seg2:Segment):
+    def __init__(self, seg1:Segment, seg2:Segment, point:Point):
         self.segment1 = seg1 
         self.segment2 = seg2
-        self.intersection_point = Intersection(seg1, seg2) #function from elementary_functions.py
+        self.intersection_point = point
     def get_inter_point(self):
         return self.intersection_point
 
@@ -90,10 +94,10 @@ class Intersection_Point:
 More details.
 """
 class Seg_Point_Side:
-    def __init__(self, segment:Segment, point:Point):
+    def __init__(self, segment:Segment, point:Point, side:Side):
         self.segment = segment
         self.point = point
-        self.side = WhichSide(segment, point) #function from elementary_functions.py
+        self.side = side
     def get_side(self):
         return self.side
 

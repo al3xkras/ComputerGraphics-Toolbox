@@ -1,0 +1,34 @@
+[info]
+#Plik
+
+[points 0]
+#Zestaw 3
+-0.001	0.5
+-10.5	10.5
+1.03	-20.0
+
+[points 2]
+#Zestaw czerwony
+-11.8	-5.0
+-6.0	-10.65
+
+[segments 1]
+#Zestaw bla bla
+1.0	4.0	0.0	-12.0
+10.0	12.0	-0.667	0.667
+-14.0	2.0	-2.0	2.0
+[intersections]
+#bla bla
+-1.0	0.0	1.0	0.0	1	0.0	-1.0	0.0	1.0	2	0.0	0.0
+2.0	0.0	3.0	0.0	1	0.0	-1.0	0.0	1.0	2	nan	nan
+-1.0	0.0	1.0	0.0	1	0.0	0.0	2.0	0.0	2	-inf	inf
+
+[info]
+#bla bla
+odcinek 1 bla bla
+blablablabl
+
+[whichside]
+#ddddd
+-1.0	0.0	1.0	0.0	0.0	1.0	-1
+-1.0	0.0	1.0	0.0	0.0	-1.0	1
