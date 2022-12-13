@@ -9,6 +9,7 @@ More details.
 More details.
 """
 
+
 class Color:
     NONE = 0
     BLUE = 1
