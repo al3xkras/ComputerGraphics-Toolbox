@@ -287,7 +287,7 @@ def parse_file(dir_path):
 
 
 def test_cases():
-    return parse_file("./dane.txt")
+    return parse_file("../../test_data_set/dane.txt")
 
 # GIVE THE PATH OF FILE YOU WANT TO USE
 if __name__ == '__main__':
