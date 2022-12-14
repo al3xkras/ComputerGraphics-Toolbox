@@ -3,6 +3,15 @@ from data_representation import *
 from elementary_functions import *
 
 class Test(TestCase):
+    def test_intersection(self):
+        s1=Segment(Point(0,0),Point(2,4))
+        s2=Segment(Point(2,-1),Point(1,3))
+        p = Intersection(
+            s1,s2
+        )
+        self.assertIsNotNone(p)
+
+
     def test_which_side(self):
         test_segments=[
             Segment(Point(0,0),Point(0,1)),

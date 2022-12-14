@@ -1,3 +1,4 @@
+
 """@package docstring
 Documentation for this module.
 
@@ -9,6 +10,13 @@ More details.
 More details.
 """
 
+class Color:
+    NONE = 0
+    BLUE = 1
+    RED = 2
+    GREEN = 3
+
+
 
 class Color:
     NONE = 0
@@ -18,7 +26,7 @@ class Color:
     pass
 
 class Point:
-    def __init__(self, x, y, color:Color):
+    def __init__(self, x, y, color=Color.NONE):
         self.x = x
         self.y = y
         self.color = color
@@ -85,6 +93,7 @@ class Intersection_Point:
         self.segment1 = seg1 
         self.segment2 = seg2
         self.intersection_point = point
+        self.intersection_point = point #function from elementary_functions.py
     def get_inter_point(self):
         return self.intersection_point
 
@@ -98,6 +107,7 @@ class Seg_Point_Side:
         self.segment = segment
         self.point = point
         self.side = side
+        self.side = side #function from elementary_functions.py
     def get_side(self):
         return self.side
 
@@ -107,8 +117,9 @@ class Seg_Point_Side:
 More details.
 """
 class Polygon:
-    def __init__(self, vertices):
-        self.vertices = PolygonVertexList(vertices)
+    def __init__(self, vertices, lazyInit=False):
+        self.vertices = PolygonVertexList(vertices,lazyInit=lazyInit)
+
     def get_vertices(self):
         return self.vertices
 
@@ -176,12 +187,27 @@ class SegmentList(List):
 More details.
 """
 class PolygonVertexList(List):
-    def __init__(self, points):
+
+    def __init__(self, points, lazyInit=False):
         #todo test
         assert all(isinstance(x, Point) for x in points)
+        assert len(points)>=3
         super().__init__(points)
         point_list = [x for x in points]
         self.data=point_list
+        if not lazyInit:
+            assert not self.has_self_intersections()
+
+    def has_self_intersections(self):
+        #O((n**2-n)/2) = O(n**2) (naive method)
+        for i in range(0,len(self.data)):
+            seg=Segment(self.data[i-1],self.data[i])
+            for j in range(i-2):
+                s1=Segment(self[j],self[j+1])
+                if Intersection(seg,s1) is not None:
+                    return True
+        return False
+
 
 """Documentation for this class.
 
