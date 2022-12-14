@@ -1,0 +1,76 @@
+intersections
+1.0	1.0	2.0	1.0	1	2.0	2.0	3.0	2.0	2	nan	nan
+-1.0	-1.0	-2.0	-1.0	1	-2.0	-2.0	-3.0	-2.0	2	nan	nan
+-1.0	1.0	-2.0	1.0	1	-2.0	2.0	-3.0	2.0	2	nan	nan
+1.0	-1.0	2.0	-1.0	1	2.0	-2.0	3.0	-2.0	2	nan	nan
+0.0	0.0	1.0	0.0	1	0.0	1.0	1.0	1.0	2	nan	nan
+0.0	0.0	0.0	2.0	1	1.0	0.0	1.0	2.0	2	nan	nan
+1.0	1.0	1.0	2.0	1	2.0	2.0	2.0	3.0	2	nan	nan
+-1.0	-1.0	-1.0	-2.0	1	-2.0	-2.0	-2.0	-3.0	2	nan	nan
+1.0	-1.0	1.0	-2.0	1	2.0	-2.0	2.0	-3.0	2	nan	nan
+-1.0	1.0	-1.0	2.0	1	-2.0	2.0	-2.0	3.0	2	nan	nan
+1.0	1.0	2.0	4.0	1	2.0	2.0	3.0	5.0	2	nan	nan
+-1.0	-1.0	-2.0	-4.0	1	-2.0	-2.0	-3.0	-5.0	2	nan	nan
+1.0	-1.0	2.0	-4.0	1	2.0	-2.0	3.0	-5.0	2	nan	nan
+-1.0	1.0	-2.0	4.0	1	-2.0	2.0	-3.0	5.0	2	nan	nan
+0.0	0.0	2.0	3.0	1	0.0	2.0	2.0	5.0	2	nan	nan
+-1.0	-4.0	-1.0	-1.0	1	-1.0	2.0	-1.0	4.0	2	nan	nan
+-1.0	2.0	2.0	2.0	1	4.0	2.0	6.0	2.0	2	nan	nan
+-4.0	-2.0	-2.0	1.0	1	-1.0	2.0	1.0	4.0	2	nan	nan
+-3.0	0.0	-2.0	0.0	1	0.0	0.0	2.0	0.0	2	nan	nan
+5.0	0.0	5.0	3.0	1	5.0	4.0	5.0	6.0	2	nan	nan
+-2.0	-3.0	0.0	0.0	1	2.0	3.0	3.0	4.0	2	nan	nan
+1.0	4.0	3.0	4.0	1	2.0	1.0	2.0	3.0	2	nan	nan
+-1.0	-4.0	-3.0	-4.0	1	-2.0	-1.0	-2.0	-3.0	2	nan	nan
+-1.0	4.0	-3.0	4.0	1	-2.0	1.0	-2.0	3.0	2	nan	nan
+1.0	-4.0	3.0	-4.0	1	2.0	-1.0	2.0	-3.0	2	nan	nan
+-1.0	0.0	1.0	0.0	1	0.0	1.0	0.0	2.0	2	nan	nan
+1.0	0.0	-1.0	0.0	1	0.0	-1.0	0.0	-2.0	2	nan	nan
+4.0	1.0	4.0	-1.0	1	1.0	0.0	3.0	0.0	2	nan	nan
+-4.0	1.0	-4.0	1.0	1	-1.0	0.0	-3.0	0.0	2	nan	nan
+1.0	1.0	2.0	4.0	1	2.0	1.0	4.0	2.0	2	nan	nan
+1.0	-2.0	4.0	-3.0	1	1.0	-3.0	2.0	-6.0	2	nan	nan
+-7.0	-2.0	-5.0	-5.0	1	-3.0	-1.0	-4.0	-4.0	2	nan	nan
+-5.0	1.0	-1.0	3.0	1	-3.0	3.0	-4.0	7.0	2	nan	nan
+2.0	0.0	4.0	0.0	1	4.0	1.0	7.0	2.0	2	nan	nan
+-2.0	-4.0	0.0	-4.0	1	0.0	-1.0	4.0	-5.0	2	nan	nan
+-5.0	0.0	-7.0	3.0	1	-6.0	-1.0	-2.0	1.0	2	nan	nan
+0.0	1.0	-1.0	5.0	1	0.0	-3.0	1.0	6.0	2	nan	nan
+[info]
+Point 0 incorrectly calculated! Calculated result: (nan,nan)
+Point 1 incorrectly calculated! Calculated result: (nan,nan)
+Point 2 incorrectly calculated! Calculated result: (nan,nan)
+Point 3 incorrectly calculated! Calculated result: (nan,nan)
+Point 4 incorrectly calculated! Calculated result: (nan,nan)
+Point 5 incorrectly calculated! Calculated result: (nan,nan)
+Point 6 incorrectly calculated! Calculated result: (nan,nan)
+Point 7 incorrectly calculated! Calculated result: (nan,nan)
+Point 8 incorrectly calculated! Calculated result: (nan,nan)
+Point 9 incorrectly calculated! Calculated result: (nan,nan)
+Point 10 incorrectly calculated! Calculated result: (nan,nan)
+Point 11 incorrectly calculated! Calculated result: (nan,nan)
+Point 12 incorrectly calculated! Calculated result: (nan,nan)
+Point 13 incorrectly calculated! Calculated result: (nan,nan)
+Point 14 incorrectly calculated! Calculated result: (nan,nan)
+Point 15 incorrectly calculated! Calculated result: (nan,nan)
+Point 16 incorrectly calculated! Calculated result: (nan,nan)
+Point 17 incorrectly calculated! Calculated result: (nan,nan)
+Point 18 incorrectly calculated! Calculated result: (nan,nan)
+Point 19 incorrectly calculated! Calculated result: (nan,nan)
+Point 20 incorrectly calculated! Calculated result: (nan,nan)
+Point 21 incorrectly calculated! Calculated result: (nan,nan)
+Point 22 incorrectly calculated! Calculated result: (nan,nan)
+Point 23 incorrectly calculated! Calculated result: (nan,nan)
+Point 24 incorrectly calculated! Calculated result: (nan,nan)
+Point 25 incorrectly calculated! Calculated result: (nan,nan)
+Point 26 incorrectly calculated! Calculated result: (nan,nan)
+Point 27 incorrectly calculated! Calculated result: (nan,nan)
+Point 28 incorrectly calculated! Calculated result: (nan,nan)
+Point 29 incorrectly calculated! Calculated result: (nan,nan)
+Point 30 incorrectly calculated! Calculated result: (nan,nan)
+Point 31 incorrectly calculated! Calculated result: (nan,nan)
+Point 32 incorrectly calculated! Calculated result: (nan,nan)
+Point 33 incorrectly calculated! Calculated result: (nan,nan)
+Point 34 incorrectly calculated! Calculated result: (nan,nan)
+Point 35 incorrectly calculated! Calculated result: (nan,nan)
+Point 36 incorrectly calculated! Calculated result: (nan,nan)
