@@ -18,13 +18,6 @@ class Color:
 
 
 
-class Color:
-    NONE = 0
-    BLUE = 1
-    RED = 2
-    GREEN = 3
-    pass
-
 class Point:
     def __init__(self, x, y, color=Color.NONE):
         self.x = x
@@ -93,7 +86,6 @@ class Intersection_Point:
         self.segment1 = seg1 
         self.segment2 = seg2
         self.intersection_point = point
-        self.intersection_point = point #function from elementary_functions.py
     def get_inter_point(self):
         return self.intersection_point
 
@@ -107,7 +99,6 @@ class Seg_Point_Side:
         self.segment = segment
         self.point = point
         self.side = side
-        self.side = side #function from elementary_functions.py
     def get_side(self):
         return self.side
 

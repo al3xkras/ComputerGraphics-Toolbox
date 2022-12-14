@@ -1,5 +1,7 @@
 from data_representation import *
 from io_operations import parse_file
+from numpy import nan
+from math import isnan
 
 def intersect_check(data_file):
     dict = parse_file(data_file)
@@ -7,7 +9,9 @@ def intersect_check(data_file):
     info =[]
     for i in range(len(intersections)):
         inter_point = Intersection(intersections[i].segment1, intersections[i].segment2)
-        if inter_point != intersections[i].intersection_point:
+        if (isnan(inter_point.x) and isnan(intersections[i].intersection_point.x)):
+            pass 
+        elif inter_point != intersections[i].intersection_point:
             info.append("Point " +  str(i) + " incorrectly calculated! Calculated result: (" + str(inter_point.x) + "," + str(inter_point.y) + ")\n")
     f = open("test_data_set\out.txt", "w")
     for section in dict:
