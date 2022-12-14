@@ -4,8 +4,8 @@ Documentation for this module.
 More details.
 """
 from data_representation import Segment
-from data_representation import Point,Side
-from numpy import inf
+from data_representation import Point,Side,Color
+from numpy import inf,nan
 infinity=inf
 """Documentation for this function.
 
@@ -92,18 +92,18 @@ def Intersection(seg1:Segment, seg2:Segment):
         vecprod1 = VectorProduct(seg1.A, seg1.B, seg2.A, seg2.B)
         vecprod2 = VectorProduct(seg1.A, seg2.A, seg2.A, seg2.B)
         if vecprod1 == 0 and vecprod2 == 0:
-            return infinity
+            return Point(infinity,infinity,Color.NONE)
         elif vecprod1 == 0:
-            return None
+            return Point(nan,nan,Color.NONE)
         else:
             t = vecprod2/vecprod1
             vecprod3 = VectorProduct(seg1.A, seg2.A, seg1.A, seg1.B)
             u = vecprod3/vecprod1
             if t >= 0 and t <= 1 and u <= 1 and u >= 0:
                 return Point(seg1.A.x + t*(seg1.B.x - seg1.A.x),
-                          seg1.A.y + t*(seg1.B.y - seg1.A.y))
+                          seg1.A.y + t*(seg1.B.y - seg1.A.y),Color.NONE)
             else:
-                return None
+                return Point(nan,nan,Color.NONE)
 
 
 """Documentation for this function.

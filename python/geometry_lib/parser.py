@@ -148,6 +148,11 @@ def parse_file(dir_path):
     file.close()
     return sections_dictionary
 
+def test_cases():
+    return parse_file("./dane.txt")
 
 # GIVE THE PATH OF FILE YOU WANT TO USE
-dict = parse_file("C:/Users/Marta/Desktop/Studia/2 stopień/I semestr/Wstęp do grafiki komputerowej i geometrii obliczeniowej/Biblioteka/ComputerGraphics-Toolbox/python/geometry_lib/dane.txt")
+if __name__ == '__main__':
+    data_dict = test_cases()
+    for x in data_dict:
+        print(x,data_dict[x])
