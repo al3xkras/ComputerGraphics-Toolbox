@@ -1,7 +1,7 @@
 **/.idea
 **/.ipynb_checkpoints
 **/__pycache__
-/python/geometry_lib/test_out.txt
+/python/geometry_lib/test_**.txt
 /python/geometry_lib/__pycache__
 /tmp
 

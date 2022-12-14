@@ -33,10 +33,11 @@ class TestOutputWriter:
     section_end= ''
     info_expr='[info]\n#%s'
     title_expr='[%s]'
-    point_expr="%.3f %.3f %s" #x y color
-    segment_expr="%.3f %.3f %.3f %.3f %s" #x1 y1 x2 y2 color
-    intersection_point_expr="%.3f %.3f %.3f %.3f %s %.3f %.3f %.3f %.3f %s %.3f %.3f"
-    seg_point_side_expr="%.3f %.3f %.3f %.3f %.3f %.3f %d" #x1 y1 x2 y2 x3 y3
+    delim=chr(9)
+    point_expr=delim.join(["%.3f","%.3f","%s"]) #x y color
+    segment_expr=delim.join(["%.3f","%.3f","%.3f","%.3f","%s"]) #x1 y1 x2 y2 color
+    intersection_point_expr=delim.join(["%.3f","%.3f","%.3f","%.3f","%s","%.3f","%.3f","%.3f","%.3f","%s","%.3f","%.3f"])
+    seg_point_side_expr=delim.join(["%.3f","%.3f","%.3f","%.3f","%.3f","%.3f","%d"]) #x1 y1 x2 y2 x3 y3
     val_type_formats={
         Point:point_expr,
         Segment:segment_expr,
@@ -290,6 +291,13 @@ def test_cases():
 
 # GIVE THE PATH OF FILE YOU WANT TO USE
 if __name__ == '__main__':
-    data_dict = test_cases()
-    for x in data_dict:
-        print(x,data_dict[x])
+    tests=test_cases()
+    print(tests)
+    t=TestOutputWriter.from_dict(test_cases())
+    t.set_section_info("points 0","Additional info goes here")
+    t.set_header("This is the title")
+    t.print_to_file("./test_out.txt")
+
+    t1=TestOutputWriter.from_dict(parse_file("./test_out.txt"))
+    t1.print_to_file("./test_out1.txt")
+    #t.run_intersection_test()
