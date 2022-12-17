@@ -158,4 +158,4 @@ def CCW(p1:Point, p2:Point, p3:Point):
 if __name__ == '__main__':
     pass
 
-p = Intersection(Segment(Point(-1,-1),Point(-1,-4),Color.NONE), Segment(Point(-1,2),Point(-1,4),Color.NONE))
+#p = Intersection(Segment(Point(-1,-1),Point(-1,-4),Color.NONE), Segment(Point(-1,2),Point(-1,4),Color.NONE))
