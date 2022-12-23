@@ -14,6 +14,10 @@ More details.
 def VectorProduct(A:Point, B:Point, C:Point, D:Point):
     return (B.x - A.x)*(D.y - C.y) - (D.x - C.x)*(B.y - A.y)
 
+#calculates dot product of segment AB and CD
+def DotProduct(A:Point, B:Point, C:Point, D:Point):
+    return ((B.x-A.x)*(D.x-C.x) + (B.y-A.y)*(D.y-C.y))
+
 def IsIntersection(seg1:Segment, seg2:Segment):
     if (seg1.A == seg1.B) and (seg2.A == seg2.B):
         if seg1.A == seg2.A:
@@ -70,9 +74,25 @@ def IfPointIsOnSegment(A:Point, B:Point, P:Point):
         return True
     return False
 
+#checks if segments meet at one of the ends
+def CommonEnd(seg1:Segment, seg2:Segment):
+    if (seg1.A == seg2.A or seg1.A==seg2.B):
+        return seg1.A
+    elif (seg1.B == seg2.A or seg1.B==seg2.B):
+        return seg1.B
+    else:
+        return None
+
+def IfIntervalsOverlap(a1, b1, a2, b2):
+    if ((a1<a2 and b1<a2) or (a1>b2 and (b1>b2))):
+        return False
+    else:
+        return True
 
 def Intersection(seg1:Segment, seg2:Segment):
     #todo test
+    if CommonEnd(seg1,seg2):
+        return CommonEnd(seg1,seg2)
     if (seg1.A == seg1.B) and (seg2.A == seg2.B):
         if seg1.A == seg2.A:
             return seg1.A
@@ -91,8 +111,13 @@ def Intersection(seg1:Segment, seg2:Segment):
     else:
         vecprod1 = VectorProduct(seg1.A, seg1.B, seg2.A, seg2.B)
         vecprod2 = VectorProduct(seg1.A, seg2.A, seg2.A, seg2.B)
-        if vecprod1 == 0 and vecprod2 == 0:
-            return Point(infinity,infinity,Color.NONE)
+        if vecprod1 == 0 and vecprod2 == 0:   
+            t_0 = DotProduct(seg1.A,seg2.A,seg1.A,seg1.B)/DotProduct(seg1.A,seg1.B,seg1.A,seg1.B)
+            t_1 = t_0 + DotProduct(seg2.A,seg2.B,seg1.A,seg1.B)/DotProduct(seg1.A,seg1.B,seg1.A,seg1.B)
+            if IfIntervalsOverlap(t_0, t_1, 0, 1):
+                return Point(infinity,infinity,Color.NONE)
+            else:
+                return Point(nan, nan, Color.NONE)
         elif vecprod1 == 0:
             return Point(nan,nan,Color.NONE)
         else:
@@ -133,4 +158,4 @@ def CCW(p1:Point, p2:Point, p3:Point):
 if __name__ == '__main__':
     pass
 
-
+#p = Intersection(Segment(Point(-1,-1),Point(-1,-4),Color.NONE), Segment(Point(-1,2),Point(-1,4),Color.NONE))
