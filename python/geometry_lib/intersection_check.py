@@ -1,7 +1,6 @@
 from data_representation import *
 from io_operations import parse_file
 from numpy import nan
-from math import isnan
 
 def intersect_check(data_file):
     dict = parse_file(data_file)
