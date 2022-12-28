@@ -178,7 +178,7 @@ def segPointSideFromLine(line):
     return Seg_Point_Side(seg, point, side)
 
 
-RE_SECTION_NAME = re.compile(r"\[(([a-zA-Z]+) ?([\d]*))\]\n")
+RE_SECTION_NAME = re.compile(r"\[(([a-zA-Z]+) ?([\d]*))\]\t?\n")
 """
 regex catching new sections and dividing it on 3 parts
 f.e. "[points 1]\n" -> group(0) = "[points 1]\n"; group(1) = "points 1"; group(2) = "points"; group(3) = "1"
